@@ -23,10 +23,10 @@ let package = Package(
         .target(
             name: "MonPackageSwift",
             dependencies: [
-                "Swifter",
-                "Ink",
-                "Highlightr",
-                "SwiftSoup"
+                .product(name: "Swifter", package: "swifter"),
+                .product(name: "Ink", package: "Ink"),
+                .product(name: "Highlightr", package: "Highlightr"),
+                .product(name: "SwiftSoup", package: "SwiftSoup")
             ]
         )
     ]
