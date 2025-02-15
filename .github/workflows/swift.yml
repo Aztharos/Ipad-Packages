@@ -1,6 +1,3 @@
-# This workflow will build a Swift project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
-
 name: Swift
 
 on:
@@ -11,12 +8,19 @@ on:
 
 jobs:
   build:
-
     runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v4
+
+    # Résolution des dépendances via Swift Package Manager
+    - name: Resolve dependencies
+      run: swift package resolve
+
+    # Build du projet
     - name: Build
       run: swift build -v
+
+    # Exécution des tests
     - name: Run tests
       run: swift test -v
