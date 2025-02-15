@@ -13,6 +13,12 @@ let package = Package(
         .package(url: "https://github.com/Aztharos/Highlightr.git", .exact("2.2.1")),
         .package(url: "https://github.com/Aztharos/SwiftSoup.git", .exact("2.7.7"))
     ],
+    products: [
+        .library(
+            name: "MonPackageSwift", 
+            targets: ["MonPackageSwift"]
+        )
+    ],
     targets: [
         .target(
             name: "MonPackageSwift",
