@@ -22,10 +22,6 @@ let package = Package(
                 "Highlightr",
                 "SwiftSoup"
             ]
-        ),
-        .testTarget(
-            name: "MonPackageSwiftTests",
-            dependencies: ["MonPackageSwift"]
         )
     ]
 )
