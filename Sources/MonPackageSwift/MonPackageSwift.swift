@@ -30,10 +30,10 @@ public struct MonPackageSwift {
 
     // Exemple d'une fonction pour surligner du code avec Highlightr
     public static func highlightCode(_ code: String, language: String) -> String {
-        let highlighter = Highlightr()
-        let highlightedCode = highlighter.highlight(code, as: language)
-        return highlightedCode ?? ""
-    }
+    let highlighter = Highlightr()
+    let highlightedCode = highlighter!.highlight(code, as: language)  // Forçage du déballage
+    return highlightedCode
+}
 
     // Exemple d'une fonction pour parser du HTML avec SwiftSoup
     public static func parseHTML(_ html: String) -> String {
