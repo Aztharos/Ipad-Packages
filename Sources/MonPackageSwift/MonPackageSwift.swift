@@ -28,11 +28,12 @@ public struct MonPackageSwift {
         return html
     }
 
-    // Exemple d'une fonction pour surligner du code avec Highlightr
-    public static func highlightCode(_ code: String, language: String) -> String {
+public static func highlightCode(_ code: String, language: String) -> String {
     let highlighter = Highlightr()
-    let highlightedCode = highlighter!.highlight(code, as: language)  // Forçage du déballage
-    return highlightedCode
+    if let highlightedCode = highlighter?.highlight(code, as: language) {
+        return highlightedCode.string  // Convertit NSAttributedString en String
+    }
+    return ""  // Retourne une chaîne vide si le code n'est pas mis en surbrillance
 }
 
     // Exemple d'une fonction pour parser du HTML avec SwiftSoup
