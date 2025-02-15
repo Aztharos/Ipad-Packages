@@ -11,7 +11,7 @@ let package = Package(
         .package(url: "https://github.com/httpswift/swifter.git", from: "1.0.0"),
         .package(url: "https://github.com/JohnSundell/Ink.git", from: "2.0.0"),
         .package(url: "https://github.com/raspu/Highlightr.git", from: "2.0.0"),
-        .package(url: "https://github.com/Aztharos/SwiftSoup.git", from: "2.0.0")
+        .package(url: "https://github.com/Aztharos/SwiftSoup.git", .exact("2.7.7"))
     ],
     targets: [
         .target(
