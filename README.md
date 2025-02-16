@@ -1,4 +1,4 @@
-# 📦 IpadPackages  
+# 📦 Ipad-Packages  
 
 This repository includes several useful Swift packages for development on iPad with Swift Playgrounds.  
 
