@@ -1,3 +1,7 @@
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/Aztharos/Ipad-Packages/master/Sources/Swifter/logo.png" alt="Swifter" title="Swifter">
+</p>
+
 ![Platform](https://img.shields.io/badge/Platform-Linux%20&%20OSX%20&%20tvOS-4BC51D.svg?style=flat)
 ![Swift](https://img.shields.io/badge/Swift-4.x,_5.0-4BC51D.svg?style=flat)
 ![Protocols](https://img.shields.io/badge/Protocols-HTTP%201.1%20&%20WebSockets-4BC51D.svg?style=flat)
