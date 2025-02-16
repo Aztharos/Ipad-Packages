@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="https://raw.githubusercontent.com/Aztharos/Ipad-Packages/master/Sources/Swifter/logo.png" alt="Swifter" title="Swifter">
+  <img src="https://raw.githubusercontent.com/Aztharos/Ipad-Packages/Sources/Swifter/logo.png" alt="Swifter" title="Swifter">
 </p>
 
 ![Platform](https://img.shields.io/badge/Platform-Linux%20&%20OSX%20&%20tvOS-4BC51D.svg?style=flat)
