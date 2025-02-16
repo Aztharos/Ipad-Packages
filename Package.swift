@@ -111,10 +111,11 @@ let package = Package(
                 .copy("Assets/styles/xt256.min.css"),
                 .copy("Assets/styles/zenburn.min.css")
             ]
+        ),
         .target(
             name: "Ink",
             path: "Sources/Ink"
-            ),
+        ),
         .target(
             name: "SwiftSoup",
             path: "Sources/SwiftSoup"
