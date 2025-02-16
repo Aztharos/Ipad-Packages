@@ -7,6 +7,12 @@ let package = Package(
         .iOS(.v13),
         .macOS(.v10_15)
     ],
+    products: [
+        .library(
+            name: "MonPackageSwift",
+            targets: ["Highlightr", "Ink", "SwiftSoup", "Swifter"]
+        )
+    ],
     targets: [
         .target(
             name: "Highlightr",
