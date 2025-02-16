@@ -16,7 +16,7 @@ This repository includes several useful Swift packages for development on iPad w
 📜 **Markdown parser** written in Swift.  
 📌 Converts Markdown text into HTML for easy content formatting and display.  
 
-### 🕵️‍♂️ [SwiftSoup](https://github.com/Aztharos/SwiftSoup.git)  
+### 🕵️‍♂️ [SwiftSoup](https://github.com/scinfu/SwiftSoup.git)  
 🔍 **HTML parser and manipulator** in Swift.  
 📌 Works like JSoup in Java, allowing efficient extraction and modification of HTML content.  
 
@@ -38,6 +38,6 @@ Ce dépôt regroupe plusieurs packages Swift utiles pour le développement sur i
 📜 **Parseur Markdown** en Swift.  
 📌 Convertit du texte Markdown en HTML pour afficher du contenu formaté facilement.  
 
-### 🕵️‍♂️ [SwiftSoup](https://github.com/Aztharos/SwiftSoup.git)  
+### 🕵️‍♂️ [SwiftSoup](https://github.com/scinfu/SwiftSoup.git)  
 🔍 **Analyseur et manipulateur de HTML** en Swift.  
 📌 Fonctionne comme JSoup en Java, permettant d’extraire et modifier du contenu HTML efficacement.  
