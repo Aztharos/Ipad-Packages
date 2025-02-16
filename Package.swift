@@ -7,17 +7,11 @@ let package = Package(
         .iOS(.v13),
         .macOS(.v10_15)
     ],
-        products: [
-        .library(
-            name: "MonPackageSwift", 
-            targets: ["MonPackageSwift"]
-        )
-    ],
-    dependencies: [
-        .package(url: "https://github.com/Aztharos/swifter.git", .exact("1.5.0")),
-        .package(url: "https://github.com/Aztharos/Ink.git", .exact("0.6.0")),
-        .package(url: "https://github.com/Aztharos/Highlightr.git", .exact("2.2.1")),
-        .package(url: "https://github.com/Aztharos/SwiftSoup.git", .exact("2.7.7"))
+        dependencies: [
+        .package(path: "Sources/Swifter"),
+        .package(path: "Sources/Ink"),
+        .package(path: "Sources/Highlightr"),
+        .package(path: "Sources/SwiftSoup")
     ],
     targets: [
         .target(
@@ -121,22 +115,27 @@ let package = Package(
                 .copy("Assets/styles/xcode.min.css"),
                 .copy("Assets/styles/xcode-dark.min.css"),
                 .copy("Assets/styles/xt256.min.css"),
-                .copy("Assets/styles/zenburn.min.css"),
-        .target(name: "Ink"),
-        .target(name: "InkCLI", dependencies: ["Ink"]),
+                .copy("Assets/styles/zenburn.min.css")
+            ]
+        .target(
+            name: "Ink",
+            path: "Sources/Ink"
+            ),
         .target(
             name: "SwiftSoup",
-            path: "Sources/SwiftSoup"),
+            path: "Sources/SwiftSoup"
+        ),
         .target(
       name: "Swifter",
-      path: "Sources/Swifter"),
+      path: "Sources/Swifter"
+        ),
         .target(
             name: "MonPackageSwift",
             dependencies: [
-                .product(name: "Swifter", package: "swifter"),
-                .product(name: "Ink", package: "Ink"),
-                .product(name: "Highlightr", package: "Highlightr"),
-                .product(name: "SwiftSoup", package: "SwiftSoup")
+                "Swifter",
+                "Ink",
+                "Highlightr",
+                "SwiftSoup"
             ]
         )
     ]
