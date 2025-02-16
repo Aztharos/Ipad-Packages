@@ -17,7 +17,7 @@ let package = Package(
         .target(
             name: "Highlightr",
             dependencies: [],
-            path: "Sources",
+            path: "Sources/Highlightr",
             exclude: [
                 "Assets/Highlighter/LICENSE",
             ],
