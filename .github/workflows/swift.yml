@@ -22,5 +22,5 @@ jobs:
       run: swift build -v
 
     # Exécution des tests
-   # - name: Run tests
+    #- name: Run tests
     #  run: swift test -v
