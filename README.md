@@ -1,3 +1,25 @@
+# 📦 IpadPackages  
+
+This repository includes several useful Swift packages for development on iPad with Swift Playgrounds.  
+
+## 🔹 Included Packages  
+
+### 🌐 [Swifter](https://github.com/httpswift/swifter.git)  
+⚡ **Ultra-lightweight HTTP server** written in Swift.  
+📌 Enables local file hosting and HTTP request handling, perfect for development without external dependencies.  
+
+### 🎨 [Highlightr](https://github.com/raspu/Highlightr.git)  
+🖍 **Syntax highlighting** based on [highlight.js](https://highlightjs.org/).  
+📌 Ideal for styling source code in an iOS/macOS app using SwiftUI or UIKit.  
+
+### ✍️ [Ink](https://github.com/JohnSundell/Ink.git)  
+📜 **Markdown parser** written in Swift.  
+📌 Converts Markdown text into HTML for easy content formatting and display.  
+
+### 🕵️‍♂️ [SwiftSoup](https://github.com/Aztharos/SwiftSoup.git)  
+🔍 **HTML parser and manipulator** in Swift.  
+📌 Works like JSoup in Java, allowing efficient extraction and modification of HTML content.  
+
 # 📦 Ipad-Packages  
 
 Ce dépôt regroupe plusieurs packages Swift utiles pour le développement sur iPad avec Swift Playgrounds.  
