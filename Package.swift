@@ -2,14 +2,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "MonPackageSwift",
+    name: "Ipad-Packages",
     platforms: [
         .iOS(.v13),
         .macOS(.v10_15)
     ],
     products: [
         .library(
-            name: "MonPackageSwift",
+            name: "Ipad-Packages",
             targets: ["Highlightr", "Ink", "SwiftSoup", "Swifter"]
         )
     ],
