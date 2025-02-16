@@ -7,12 +7,6 @@ let package = Package(
         .iOS(.v13),
         .macOS(.v10_15)
     ],
-        dependencies: [
-        .package(path: "Sources/Swifter"),
-        .package(path: "Sources/Ink"),
-        .package(path: "Sources/Highlightr"),
-        .package(path: "Sources/SwiftSoup")
-    ],
     targets: [
         .target(
             name: "Highlightr",
@@ -128,15 +122,6 @@ let package = Package(
         .target(
       name: "Swifter",
       path: "Sources/Swifter"
-        ),
-        .target(
-            name: "MonPackageSwift",
-            dependencies: [
-                "Swifter",
-                "Ink",
-                "Highlightr",
-                "SwiftSoup"
-            ]
         )
     ]
 )
