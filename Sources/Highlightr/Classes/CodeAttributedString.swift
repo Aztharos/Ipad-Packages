@@ -153,58 +153,48 @@ open class CodeAttributedString : NSTextStorage
             }
         }
     }
+func highlight(_ range: NSRange) {
+    guard let language = self.language else { return }
 
-    func highlight(_ range: NSRange)
-    {
-        if(language == nil)
-        {
-            return;
+    if let highlightDelegate = highlightDelegate {
+        let shouldHighlight: Bool? = highlightDelegate.shouldHighlight?(range)
+        if shouldHighlight == false {
+            return
         }
-        
-        if let highlightDelegate = highlightDelegate
-        {
-            let shouldHighlight : Bool? = highlightDelegate.shouldHighlight?(range)
-            if(shouldHighlight != nil && !shouldHighlight!)
-            {
-                return;
-            }
-        }
-
-        
-        let string = (self.string as NSString)
-        let line = string.substring(with: range)
-        DispatchQueue.global().async
-        {
-            let tmpStrg = self.highlightr.highlight(line, as: self.language!)
-            DispatchQueue.main.async(execute: {
-                //Checks to see if this highlighting is still valid.
-                if((range.location + range.length) > self.stringStorage.length)
-                {
-                    self.highlightDelegate?.didHighlight?(range, success: false)
-                    return;
-                }
-                
-                if(tmpStrg?.string != self.stringStorage.attributedSubstring(from: range).string)
-                {
-                    self.highlightDelegate?.didHighlight?(range, success: false)
-                    return;
-                }
-                
-                self.beginEditing()
-                tmpStrg?.enumerateAttributes(in: NSMakeRange(0, (tmpStrg?.length)!), options: [], using: { (attrs, locRange, stop) in
-                    var fixedRange = NSMakeRange(range.location+locRange.location, locRange.length)
-                    fixedRange.length = (fixedRange.location + fixedRange.length < string.length) ? fixedRange.length : string.length-fixedRange.location
-                    fixedRange.length = (fixedRange.length >= 0) ? fixedRange.length : 0
-                    self.stringStorage.setAttributes(attrs, range: fixedRange)
-                })
-                self.endEditing()
-                self.edited(TextStorageEditActions.editedAttributes, range: range, changeInLength: 0)
-                self.highlightDelegate?.didHighlight?(range, success: true)
-            })
-            
-        }
-        
     }
+
+    let string = self.string as String
+    let nsString = string as NSString
+    _ = nsString.substring(with: range)
+
+    DispatchQueue.global().async { [string] in
+        let nsString = string as NSString
+        let line = nsString.substring(with: range)
+        let tmpStrg = self.highlightr.highlight(line, as: language)
+
+        DispatchQueue.main.async {
+            guard (range.location + range.length) <= self.stringStorage.length else {
+                self.highlightDelegate?.didHighlight?(range, success: false)
+                return
+            }
+
+            if tmpStrg?.string != self.stringStorage.attributedSubstring(from: range).string {
+                self.highlightDelegate?.didHighlight?(range, success: false)
+                return
+            }
+
+            self.beginEditing()
+            tmpStrg?.enumerateAttributes(in: NSMakeRange(0, tmpStrg?.length ?? 0), options: []) { (attrs, locRange, stop) in
+                var fixedRange = NSMakeRange(range.location + locRange.location, locRange.length)
+                fixedRange.length = min(fixedRange.length, max(0, string.count - fixedRange.location))
+                self.stringStorage.setAttributes(attrs, range: fixedRange)
+            }
+            self.endEditing()
+            self.edited(TextStorageEditActions.editedAttributes, range: range, changeInLength: 0)
+            self.highlightDelegate?.didHighlight?(range, success: true)
+        }
+    }
+}
     
     func setupListeners()
     {
