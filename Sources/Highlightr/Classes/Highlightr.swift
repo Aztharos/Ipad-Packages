@@ -50,7 +50,7 @@ open class Highlightr
     public init?(highlightPath: String? = nil)
     {
         let jsContext = JSContext()!
-        let window = JSValue(newObjectIn: jsContext)
+        _= JSValue(newObjectIn: jsContext)
 
         #if SWIFT_PACKAGE
         let bundle = Bundle.module
@@ -64,12 +64,12 @@ open class Highlightr
         }
         
         let hgJs = try! String.init(contentsOfFile: hgPath)
-        let value = jsContext.evaluateScript(hgJs)
+        _= jsContext.evaluateScript(hgJs)
         guard let hljs = jsContext.objectForKeyedSubscript("hljs") else { return nil }
 
         self.hljs = hljs
         
-        guard setTheme(to: "pojoaque") else
+        guard setTheme(to: "github-dark") else
         {
             return nil
         }
