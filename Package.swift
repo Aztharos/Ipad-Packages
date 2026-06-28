@@ -10,7 +10,6 @@ let package = Package(
     products: [
         .library(
             name: "Ipad-Packages",
-            // 1. On expose ZIPFoundation dans le produit final
             targets: ["Highlightr", "Ink", "SwiftSoup", "Swifter", "ZIPFoundation"]
         )
     ],
@@ -42,10 +41,12 @@ let package = Package(
             name: "Swifter",
             path: "Sources/Swifter"
         ),
-        // 2. On déclare le nouveau dossier source comme une target
         .target(
             name: "ZIPFoundation",
-            path: "Sources/ZIPFoundation"
+            path: "Sources/ZIPFoundation",
+            resources: [
+                .process("Resources/PrivacyInfo.xcprivacy")
+            ]
         )
     ]
 )
